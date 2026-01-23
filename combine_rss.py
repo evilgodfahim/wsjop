@@ -5,10 +5,10 @@ import email.utils
 from datetime import datetime, timezone
 
 RSS_URLS = [
-    "https://feeds.washingtonpost.com/rss/opinions"
+    "https://feeds.washingtonpost.com/rss/world"
 ]
 
-ARCHIVE_PREFIX = "https://archive.is/o/lkW9s/"
+ARCHIVE_PREFIX = "https://archive.is/o/A5nuz/"
 OUTPUT_FILE = "combined.xml"
 
 def parse_entry_datetime(entry):
