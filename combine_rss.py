@@ -7,10 +7,10 @@ from datetime import datetime, timezone
 import os
 
 RSS_URLS = [
-    "https://feeds.washingtonpost.com/rss/world"
+    "https://feeds.content.dowjones.io/public/rss/RSSWorldNews"
 ]
 
-ARCHIVE_PREFIX = "https://archive.is/o/A5nuz/"
+ARCHIVE_PREFIX = "https://archive.is/o/soww3/"
 OUTPUT_FILE = "combined.xml"
 MAX_ITEMS = 500
 
