@@ -116,7 +116,7 @@ doc.appendChild(rss)
 channel = doc.createElement("channel")
 rss.appendChild(channel)
 channel.appendChild(doc.createElement("title")).appendChild(doc.createTextNode("Project Syndicate Archive Feed"))
-channel.appendChild(doc.createElement("link")).appendChild(doc.createTextNode("https://washingtonpost.com"))
+channel.appendChild(doc.createElement("link")).appendChild(doc.createTextNode("https://www.wsj.com"))
 channel.appendChild(doc.createElement("description")).appendChild(doc.createTextNode("Combined feed with archive links"))
 
 for it in all_entries:
