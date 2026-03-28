@@ -8,7 +8,7 @@ import os
 import re
 
 RSS_URLS = [
-    "https://feeds.content.dowjones.io/public/rss/RSSWorldNews"
+    "https://feeds.content.dowjones.io/public/rss/RSSOpinion"
 ]
 
 ARCHIVE_PREFIX = "https://archive.is/o/soww3/"
