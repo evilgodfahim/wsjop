@@ -11,7 +11,7 @@ RSS_URLS = [
     "https://feeds.content.dowjones.io/public/rss/RSSOpinion"
 ]
 
-ARCHIVE_PREFIX = "https://archive.is/o/soww3/"
+ARCHIVE_PREFIX = "https://archive.is/o/vL57B/"
 OUTPUT_FILE = "combined.xml"
 MAX_ITEMS = 500
 MEDIA_NS = "http://search.yahoo.com/mrss/"
