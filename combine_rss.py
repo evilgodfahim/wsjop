@@ -4,6 +4,7 @@ from xml.dom.minidom import Document, parseString
 from xml.parsers.expat import ExpatError
 import email.utils
 from datetime import datetime, timezone
+from urllib.parse import urlsplit, urlunsplit
 import os
 import re
 
@@ -15,6 +16,13 @@ ARCHIVE_PREFIX = "https://archive.is/o/vL57B/"
 OUTPUT_FILE = "combined.xml"
 MAX_ITEMS = 500
 MEDIA_NS = "http://search.yahoo.com/mrss/"
+
+
+def clean_url(url):
+    """Strip query string and fragment from a URL."""
+    parts = urlsplit(url)
+    return urlunsplit(parts._replace(query="", fragment=""))
+
 
 def parse_entry_datetime(entry):
     if hasattr(entry, "published_parsed") and entry.published_parsed:
@@ -100,13 +108,14 @@ new_entries = []
 for feed_url in RSS_URLS:
     feed = feedparser.parse(feed_url)
     for entry in feed.entries:
-        if entry.link in existing_guids:
+        orig_link = clean_url(entry.link)          # strip ?mod=... etc.
+        if orig_link in existing_guids:
             continue
         dt = parse_entry_datetime(entry)
         new_entries.append({
             "title": getattr(entry, "title", "Untitled"),
-            "orig_link": entry.link,
-            "archive_link": ARCHIVE_PREFIX + entry.link,
+            "orig_link": orig_link,
+            "archive_link": ARCHIVE_PREFIX + orig_link,
             "summary": getattr(entry, "summary", "") or getattr(entry, "description", ""),
             "published_dt": dt,
             "thumbnail": get_thumbnail(entry)
